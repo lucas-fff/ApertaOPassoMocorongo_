@@ -1,0 +1,6 @@
+prgrama{
+    funcao inicial(){
+
+    }
+
+}
