@@ -3,23 +3,23 @@ programa
     real notas[5]
 
     // Funcao para calcular a media
-    funcao real mediaVetor(inteiro n)
+    funcao real mediaVetor(inteiro quantidade)
     {
-        real soma = 0.0
-        inteiro i
+        real somaNotas = 0.0
+        inteiro contadorMedia
 
-        para (i = 0; i < n; i++)
+        para (contadorMedia = 0; contadorMedia < quantidade; contadorMedia++)
         {
-            soma = soma + notas[i]
+            somaNotas = somaNotas + notas[contadorMedia]
         }
 
-        retorne soma / n
+        retorne somaNotas / quantidade
     }
 
     // Funcao para verificar aprovacao
-    funcao logico aprovado(real media)
+    funcao logico aprovado(real valorMedia)
     {
-        se (media >= 7.0)
+        se (valorMedia >= 7.0)
         {
             retorne verdadeiro
         }
@@ -30,49 +30,55 @@ programa
     }
 
     // Funcao para encontrar a maior nota
-    funcao real maiorNota(inteiro n)
+    funcao real maiorNota(inteiro quantidade)
     {
-        real maior = notas[0]
-        inteiro i
+        real notaMaxima = notas[0]
+        inteiro contadorMaior
 
-        para (i = 1; i < n; i++)
+        para (contadorMaior = 1; contadorMaior < quantidade; contadorMaior++)
         {
-            se (notas[i] > maior)
+            se (notas[contadorMaior] > notaMaxima)
             {
-                maior = notas[i]
+                notaMaxima = notas[contadorMaior]
             }
         }
 
-        retorne maior
+        retorne notaMaxima
     }
 
     funcao inicio()
     {
-        real media, maior
-        inteiro i
+        real resultadoMedia
+        real resultadoMaior
+        inteiro contadorLeitura
 
-        // Ler as 5 notas
-        para (i = 0; i < 5; i++)
+        // Ler as cinco notas
+        para (contadorLeitura = 0; contadorLeitura < 5; contadorLeitura++)
         {
-            escreva("Digite a ", i + 1, " nota: ")
-            leia(notas[i])
+            escreva("Digite a ", contadorLeitura + 1, " nota: ")
+            leia(notas[contadorLeitura])
         }
 
         // Chamar as funcoes
-        media = mediaVetor(5)
-        maior = maiorNota(5)
+        resultadoMedia = mediaVetor(5)
+        resultadoMaior = maiorNota(5)
 
         // Mostrar os resultados
-        escreva("\n-----Media-----: ", media, "\n")
-        escreva("-----Maior nota-----: ", maior, "\n")
+        escreva("\n----- MEDIA -----\n")
+        escreva("Media: ", resultadoMedia, "\n")
 
-        se (aprovado(media))
+        escreva("\n----- MAIOR NOTA -----\n")
+        escreva("Maior nota: ", resultadoMaior, "\n")
+
+        escreva("\n----- RESULTADO -----\n")
+
+        se (aprovado(resultadoMedia))
         {
-            escreva("Resultado: ====Aprovado====")
+            escreva("Aprovado!")
         }
         senao
         {
-            escreva("Resultado: ===Reprovado=====")
+            escreva("Reprovado!")
         }
     }
 }

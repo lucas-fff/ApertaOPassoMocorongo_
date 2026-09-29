@@ -18,23 +18,26 @@ programa
         real precoFinal
         inteiro i
 
-        // Ler os preços dos 4 itens
+        // Ler os precos dos 4 produtos
         para (i = 0; i < 4; i++)
         {
-            escreva("Digite o preco do ", i + 1, " item: R$ ")
+            escreva("Digite o preco do ",
+            i + 1, " produto: R$ ")
             leia(precos[i])
         }
 
-        // Mostrar o preço original e o preço com desconto
-        escreva("\n--- Precos dos produtos ---\n")
+        // Mostrar os precos e descontos
+        escreva("\n--- RESULTADO ---\n")
 
         para (i = 0; i < 4; i++)
         {
             precoFinal = comDesconto(precos[i])
 
-            escreva("\nItem ", i + 1, "\n")
-            escreva("====Preco original====: R$ ", precos[i], "\n")
-            escreva("====Preco final====: R$ ", precoFinal, "\n")
+            escreva("\nProduto ", i + 1, "\n")
+            escreva("Preco original: R$ ",
+            precos[i], "\n")
+            escreva("Preco final: R$ ",
+            precoFinal, "\n")
         }
     }
 }
